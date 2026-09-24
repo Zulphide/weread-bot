@@ -2,10 +2,9 @@ name: Auto Reading Bot
 
 on:
   # 定时触发 - Fork 后如需自动定时运行，请取消下方 schedule 注释
-  # schedule:
-  #   - cron: '0 0 * * *'    # UTC 00:00 = 北京时间 08:00
-  #   - cron: '0 12 * * *'   # UTC 12:00 = 北京时间 20:00
-  
+  schedule:
+    - cron: '0 4 * * *'    # UTC 04:00 = Ohio 00:00
+    - cron: '0 23 * * *'   # UTC 23:00 = Ohio 19:00
   # 拉取请求触发，用于测试阅读
   pull_request:
     branches: [ main ]
@@ -21,12 +20,12 @@ on:
       target_duration:
         description: '阅读时长（分钟，格式：10-20。留空时优先使用仓库 Secret TARGET_DURATION，否则默认 1-2）'
         required: false
-        default: ''
+        default: '25-35'
         type: string
       reading_mode:
         description: '阅读模式'
         required: false
-        default: 'smart_random'
+        default: 'pure_random'
         type: choice
         options:
         - smart_random
@@ -50,7 +49,7 @@ on:
       history_max_entries:
         description: '执行历史最多保留多少条'
         required: false
-        default: '50'
+        default: '30'
         type: string
 
 jobs:
