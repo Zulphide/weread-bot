@@ -3,7 +3,7 @@ name: Auto Reading Bot
 on:
   # 定时触发 - Fork 后如需自动定时运行，请取消下方 schedule 注释
   schedule:
-    - cron: '0 4 * * *'    # UTC 04:00 = Ohio 00:00
+    - cron: '0 11 * * *'    # UTC 11:00 = Ohio 07:00
     - cron: '0 23 * * *'   # UTC 23:00 = Ohio 19:00
   # 拉取请求触发，用于测试阅读
   pull_request:
